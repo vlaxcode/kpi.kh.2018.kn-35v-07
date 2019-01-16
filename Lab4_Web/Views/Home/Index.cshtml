@@ -1,0 +1,95 @@
+﻿@model Lab4_Web.Models.ResponseModel
+
+@{
+    ViewBag.Title = "Лабораторная работа";
+}
+
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+<section>
+    <div class="block1">
+        <h1>Мой диплом</h1>
+        <h4 class="special">Я честно его делаю. Серьезно</h4>
+        <h1>___</h1>
+        </br>
+        </br>
+        <ul id="list">
+            <li>
+                <img class="icon" src="~/src/icon7.png" alt="icon7">
+                <h3>Диплом</h3>
+                <h6>Он сложный</h6>
+            </li>
+            <li><img class="photo" src="~/src/photo1.jpg" alt="photo1"></li>
+            <li>
+                <img class="icon" src="~/src/icon7.png" alt="icon7">
+                <h3>Диплом</h3>
+                <h6>Наверняка, полезный</h6>
+            </li>
+            <li><img class="photo" src="~/src/photo5.jpg" alt="photo5"></li>
+            <li><img class="photo" src="~/src/photo6.jpg" alt="photo6"></li>
+            <li>
+                <img class="icon" src="~/src/icon7.png" alt="icon7">
+                <h3>Диплом</h3>
+                <h6>Нужен кафедре</h6>
+            </li>
+            <li><img class="photo" src="~/src/photo7.jpg" alt="photo7"></li>
+            <li>
+                <img class="icon" src="~/src/icon7.png" alt="icon7">
+                <h3>Диплом</h3>
+                <h6>Слегка утомляет</h6>
+            </li>
+        </ul>
+    </div>
+</section>
+<section>
+    <div class="block2">
+        <h1>Мне Нужна Ваша Поддержка</h1>
+        <h4 class="special">Заполните поля ниже, пожалуйста</h4>
+        <button class="arrow"><img src="~/src/icon12.png" alt="icon12"></button>
+        </br>
+        <div class="rectangle">
+            <button class="exit">X</button>
+            <article><p>Знаете, у меня диплом на PHP, я не хотела этого. Поэтому если прямо сейчас вы напишете мне слова поддержки, я буду очень благодарна. Спасибо</p></article>
+            <br>
+            <br>
+            @using (Html.BeginForm("ResponseForm", "Home", FormMethod.Post))
+            {
+                @Html.TextBoxFor(x => x.Username, new { @placeholder = "Ваше имя", @class = "inputStyle" })
+                @Html.TextBoxFor(x => x.Email, new { @placeholder = "Контактные данные", @class = "inputStyle" })
+                @Html.TextBoxFor(x => x.Message, new { @placeholder = "Сообщение", @class = "inputStyle" })
+                <input class="submit" type="submit" value="ПОДДЕРЖАТЬ" />
+            }
+        </div>
+
+<section>
+    <div class="block3">
+        <h2>Оставаться в курсе</h2>
+        <ul>
+            <li id="redborder"><img class="icon" src="~/src/icon8.png" alt="icon7"></li>
+            <li><img class="icon" src="~/src/icon9.png" alt="icon7"></li>
+            <li><img class="icon" src="~/src/icon10.png" alt="icon7"></li>
+            <li><img class="icon" src="~/src/icon11.png" alt="icon7"></li>
+        </ul>
+        <br>
+        <br>
+        <p>Вы можете подписаться, чтобы всегда знать как у меня дела</p>
+        <input type="text" name="email" placeholder="Email Adress">
+        <br>
+        <button class="subscribe">Подписаться</button>
+    </div>
+    <footer>
+        <p class="footer">2018 Все права защищены</p>
+    </footer>
+</section>
+
+<script>
+    $('.arrow').click(function () {
+        $('.rectangle').slideDown('slow');
+    });
+
+    $('.exit').click(function () {
+        $('.rectangle').slideUp('slow');
+    });
+</script>
+
